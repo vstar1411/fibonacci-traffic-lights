@@ -6,65 +6,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+## Running the Application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Ensure you have Node.js and npm installed on your system.
+2. Clone this repository.
+3. Navigate to the project directory in your terminal.
+4. Run `npm install` to install the dependencies.
+5. Run `npm start` to start the development server.
+6. Open your browser and visit `http://localhost:3000` to view the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Design Decisions
 
-### `npm test`
+1. **Custom Hook**: A custom hook `useFibonacciCalculator` was created to manage the state and calculations for each traffic light. This allows for easy reuse and separation of concerns.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Simulated Calculation Time**: To better visualize the process, a 1-second delay was added between each state change and calculation.
 
-### `npm run build`
+3. **Responsive Design**: The traffic lights are laid out using flexbox, allowing them to wrap to the next row on smaller screens.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Concurrent Operation**: Each traffic light operates independently using its own instance of the `useFibonacciCalculator` hook, allowing for concurrent calculations.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. **State Management**: The traffic light states (stopped, calculating, complete) are managed within the custom hook, simplifying the main component logic.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Potential Optimizations
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Memoization**: Implement memoization for the Fibonacci function to avoid redundant calculations.
+2. **Web Workers**: For more intensive calculations, consider using Web Workers to perform calculations off the main thread.
